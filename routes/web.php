@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function () {
             Route::get('manage-users', App\Livewire\Administrator\ManageUsers::class)
                 ->name('user')
                 ->middleware('can:manage users');
+
+            Route::get('manage-roles', App\Livewire\Administrator\ManageRoles::class)
+                ->name('role')
+                ->middleware('can:manage roles');
         });
 
     });

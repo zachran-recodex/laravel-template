@@ -10,6 +10,8 @@
     <flux:navlist variant="outline">
         <flux:navlist.group :heading="__('Administrator')" class="grid">
             <flux:navlist.item icon="users" :href="route('dashboard.administrator.user')" :current="request()->routeIs('dashboard.administrator.user')" wire:navigate>Manage Users</flux:navlist.item>
+
+            <flux:navlist.item icon="shield-check" :href="route('dashboard.administrator.role')" :current="request()->routeIs('dashboard.administrator.role')" wire:navigate>Manage Roles</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 
