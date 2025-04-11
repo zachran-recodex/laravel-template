@@ -14,6 +14,18 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::prefix('dashboard')->name('dashboard.')->group(function (){
+
+        Route::prefix('administrator')->name('administrator.')->group(function (){
+
+            Route::get('manage-users', App\Livewire\Administrator\ManageUsers::class)
+                ->name('user')
+                ->middleware('can:manage users');
+        });
+
+    });
+
     Route::redirect('settings', 'settings/profile');
 
     Route::get('settings/profile', Profile::class)->name('settings.profile');

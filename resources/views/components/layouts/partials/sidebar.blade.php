@@ -5,9 +5,11 @@
         <x-app-logo />
     </a>
 
+    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Dashboard</flux:navlist.item>
+
     <flux:navlist variant="outline">
-        <flux:navlist.group :heading="__('Platform')" class="grid">
-            <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Dashboard</flux:navlist.item>
+        <flux:navlist.group :heading="__('Administrator')" class="grid">
+            <flux:navlist.item icon="users" :href="route('dashboard.administrator.user')" :current="request()->routeIs('dashboard.administrator.user')" wire:navigate>Manage Users</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 
