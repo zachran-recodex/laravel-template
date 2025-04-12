@@ -167,11 +167,11 @@ class ManageRoles extends Component
         if ($this->roleToDelete) {
             $role = Role::findOrFail($this->roleToDelete);
 
-            // Prevent deleting super-admin role
-            if ($role->name === 'super-admin') {
-                $this->notification = "You cannot delete the super-admin role.";
+            // Prevent deleting Super Admin role
+            if ($role->name === 'Super Admin') {
+                $this->notification = "You cannot delete the Super Admin role.";
                 $this->notificationType = "warning";
-                Log::warning('User attempted to delete super-admin role', [
+                Log::warning('User attempted to delete Super Admin role', [
                     'user_id' => Auth::id(),
                     'action' => 'delete_role'
                 ]);

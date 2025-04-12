@@ -36,17 +36,17 @@ class UsersRolesAndPermissionsSeeder extends Seeder
 
         // Create roles and assign permissions
         // Super Admin role - giving all permissions explicitly
-        $superAdminRole = Role::create(['name' => 'super-admin']);
+        $superAdminRole = Role::create(['name' => 'Super Admin']);
         $superAdminRole->givePermissionTo(Permission::all());
 
-        $adminRole = Role::create(['name' => 'admin']);
+        $adminRole = Role::create(['name' => 'Admin']);
         $adminRole->givePermissionTo([
             'manage users',
-           'manage roles',
+            'manage roles',
         ]);
 
         // User role - no permissions
-        $userRole = Role::create(['name' => 'user']);
+        $userRole = Role::create(['name' => 'User']);
         // Empty array means no permissions
         $userRole->givePermissionTo([]);
 
@@ -56,7 +56,7 @@ class UsersRolesAndPermissionsSeeder extends Seeder
             'email' => 'superadmin@mail.com',
             'password' => Hash::make('admin123'),
         ]);
-        $superAdmin->assignRole('super-admin');
+        $superAdmin->assignRole('Super Admin');
 
         // Create admin user
         $admin = User::create([
@@ -64,7 +64,7 @@ class UsersRolesAndPermissionsSeeder extends Seeder
             'email' => 'admin@mail.com',
             'password' => Hash::make('admin123'),
         ]);
-        $admin->assignRole('admin');
+        $admin->assignRole('Admin');
 
         // Create regular user
         $user = User::create([
@@ -72,6 +72,6 @@ class UsersRolesAndPermissionsSeeder extends Seeder
             'email' => 'user@mail.com',
             'password' => Hash::make('admin123'),
         ]);
-        $user->assignRole('user');
+        $user->assignRole('User');
     }
 }
