@@ -7,15 +7,23 @@
 
     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Dashboard</flux:navlist.item>
 
+    @if(auth()->user()->hasRole(['Super Admin', 'Admin']))
     <flux:navlist variant="outline">
-        <flux:navlist.group :heading="__('Administrator')" class="grid">
+        <flux:navlist.group expandable heading="Administrator" class="grid">
+            @can('manage users')
             <flux:navlist.item icon="users" :href="route('dashboard.administrator.user')" :current="request()->routeIs('dashboard.administrator.user')" wire:navigate>Manage Users</flux:navlist.item>
+            @endcan
 
+            @can('manage roles')
             <flux:navlist.item icon="shield-check" :href="route('dashboard.administrator.role')" :current="request()->routeIs('dashboard.administrator.role')" wire:navigate>Manage Roles</flux:navlist.item>
+            @endcan
 
+            @can('manage permissions')
             <flux:navlist.item icon="key" :href="route('dashboard.administrator.permission')" :current="request()->routeIs('dashboard.administrator.permission')" wire:navigate>Manage Permissions</flux:navlist.item>
+            @endcan
         </flux:navlist.group>
     </flux:navlist>
+    @endif
 
     <flux:spacer />
 
