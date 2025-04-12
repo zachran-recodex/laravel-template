@@ -4,10 +4,13 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::controller(MainController::class)->group(function () {
+
+    Route::get('', 'index')->name('home');
+
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
