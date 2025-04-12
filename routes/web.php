@@ -26,6 +26,10 @@ Route::middleware(['auth'])->group(function () {
             Route::get('manage-roles', App\Livewire\Administrator\ManageRoles::class)
                 ->name('role')
                 ->middleware('can:manage roles');
+
+            Route::get('manage-permissions', App\Livewire\Administrator\ManagePermissions::class)
+                ->name('permission')
+                ->middleware('can:manage permissions');
         });
 
     });
