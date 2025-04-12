@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('administrator')->name('administrator.')->group(function (){
 
+            Route::get('overview', App\Livewire\Administrator\Overview::class)
+                ->name('overview');
+
             Route::get('manage-users', App\Livewire\Administrator\ManageUsers::class)
                 ->name('user')
                 ->middleware('can:manage users');

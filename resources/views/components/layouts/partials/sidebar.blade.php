@@ -10,6 +10,8 @@
     @if(auth()->user()->hasRole(['Super Admin', 'Admin']))
     <flux:navlist variant="outline">
         <flux:navlist.group expandable heading="Administrator" class="grid">
+            <flux:navlist.item icon="home" :href="route('dashboard.administrator.overview')" :current="request()->routeIs('dashboard.administrator.overview')" wire:navigate>Overview</flux:navlist.item>
+
             @can('manage users')
             <flux:navlist.item icon="users" :href="route('dashboard.administrator.user')" :current="request()->routeIs('dashboard.administrator.user')" wire:navigate>Manage Users</flux:navlist.item>
             @endcan
