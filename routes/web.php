@@ -4,6 +4,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\ManageMetaTags;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\Settings\ViewLog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
     Route::get('settings/meta-tags', ManageMetaTags::class)->name('settings.meta-tags');
+    Route::get('settings/view-log', ViewLog::class)->name('settings.view-log');
 });
 
 require __DIR__.'/auth.php';

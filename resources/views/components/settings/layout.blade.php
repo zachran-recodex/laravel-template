@@ -5,6 +5,7 @@
             <flux:navlist.item :href="route('settings.password')" wire:navigate>{{ __('Password') }}</flux:navlist.item>
             <flux:navlist.item :href="route('settings.appearance')" wire:navigate>{{ __('Appearance') }}</flux:navlist.item>
             <flux:navlist.item :href="route('settings.meta-tags')" wire:navigate>{{ __('Meta Tags') }}</flux:navlist.item>
+            <flux:navlist.item :href="route('settings.view-log')" wire:navigate>{{ __('View Log') }}</flux:navlist.item>
         </flux:navlist>
     </div>
 
