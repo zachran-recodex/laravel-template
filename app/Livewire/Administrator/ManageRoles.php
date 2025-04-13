@@ -27,18 +27,7 @@ class ManageRoles extends Component
 {
     use WithPagination;
 
-    /**
-     * Form field for role's name.
-     *
-     * @var string
-     */
     public $name = '';
-
-    /**
-     * Selected permission IDs for the role.
-     *
-     * @var array<int>
-     */
     public $selectedPermissions = [];
 
     /**

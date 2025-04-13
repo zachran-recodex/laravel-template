@@ -25,11 +25,6 @@ class ManagePermissions extends Component
 {
     use WithPagination;
 
-    /**
-     * Form field for permission's name.
-     *
-     * @var string
-     */
     public $name = '';
 
     /**

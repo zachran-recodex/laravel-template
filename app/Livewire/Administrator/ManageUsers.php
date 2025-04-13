@@ -28,39 +28,10 @@ class ManageUsers extends Component
 {
     use WithPagination;
 
-    /**
-     * Form field for user's name.
-     *
-     * @var string
-     */
     public $name = '';
-
-    /**
-     * Form field for user's email.
-     *
-     * @var string
-     */
     public $email = '';
-
-    /**
-     * Form field for user's password.
-     *
-     * @var string
-     */
     public $password = '';
-
-    /**
-     * Form field for password confirmation.
-     *
-     * @var string
-     */
     public $password_confirmation = '';
-
-    /**
-     * Selected role IDs for the user.
-     *
-     * @var array<int>
-     */
     public $selectedRoles = [];
 
     /**
