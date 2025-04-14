@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Settings\Appearance;
+use App\Livewire\Settings\ArtisanCommand;
 use App\Livewire\Settings\ManageMetaTags;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -49,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
     Route::get('settings/meta-tags', ManageMetaTags::class)->name('settings.meta-tags');
     Route::get('settings/view-log', ViewLog::class)->name('settings.view-log');
+    Route::get('settings/artisan-command', ArtisanCommand::class)->name('settings.artisan-command');
 });
 
 require __DIR__.'/auth.php';
