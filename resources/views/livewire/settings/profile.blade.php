@@ -38,6 +38,33 @@
             </div>
         </form>
 
+        <!-- Session Information Section -->
+        <div class="mt-8 border-t pt-6">
+            <h3 class="text-lg font-medium">{{ __('Session Information') }}</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">{{ __('Your current session details') }}</p>
+
+            @if ($userSession)
+                <div class="space-y-4">
+                    <div>
+                        <flux:text class="font-medium">{{ __('IP Address') }}:</flux:text>
+                        <flux:text>{{ $ipAddress }}</flux:text>
+                    </div>
+
+                    <div>
+                        <flux:text class="font-medium">{{ __('User Agent') }}:</flux:text>
+                        <flux:text class="break-all">{{ $userAgent }}</flux:text>
+                    </div>
+
+                    <div>
+                        <flux:text class="font-medium">{{ __('Last Activity') }}:</flux:text>
+                        <flux:text>{{ $lastActivity }}</flux:text>
+                    </div>
+                </div>
+            @else
+                <flux:text>{{ __('No session information available.') }}</flux:text>
+            @endif
+        </div>
+
         <livewire:settings.delete-user-form />
     </x-settings.layout>
 </section>

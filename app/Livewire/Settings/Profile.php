@@ -3,6 +3,7 @@
 namespace App\Livewire\Settings;
 
 use App\Models\User;
+use App\Models\Session as UserSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
@@ -14,6 +15,11 @@ class Profile extends Component
 
     public string $email = '';
 
+    public $userSession = null;
+    public $ipAddress = '';
+    public $userAgent = '';
+    public $lastActivity = '';
+
     /**
      * Mount the component.
      */
@@ -21,6 +27,17 @@ class Profile extends Component
     {
         $this->name = Auth::user()->name;
         $this->email = Auth::user()->email;
+
+        // Get current user session data
+        $this->userSession = UserSession::where('user_id', Auth::id())
+            ->orderBy('last_activity', 'desc')
+            ->first();
+
+        if ($this->userSession) {
+            $this->ipAddress = $this->userSession->ip_address;
+            $this->userAgent = $this->userSession->user_agent;
+            $this->lastActivity = $this->userSession->last_activity;
+        }
     }
 
     /**
